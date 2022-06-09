@@ -1,0 +1,14 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th>{{questionList.length}} Questions</th>
+            <th>Title</th>
+            <th>
+                <a class="btn btn-primary" routerLink="../askQuestion">Ask Question</a>
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+            <tr app-question *ngFor="let q of questionList" [question]=q></tr>    
+    </tbody>
+</table>

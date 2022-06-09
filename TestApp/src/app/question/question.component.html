@@ -1,0 +1,8 @@
+<td *ngIf="question">{{answerList.length}} Answers</td>
+<td *ngIf="question"><a routerLink={{route}}>{{question.title}}</a></td>
+<td *ngIf="question">
+    Asked By: {{question.askedBy}}
+    <br>
+    Asked At: {{question.askedAt}}
+</td>
+

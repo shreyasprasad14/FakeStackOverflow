@@ -1,0 +1,41 @@
+<div *ngIf="question">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>{{question.title}}</th>
+                <th>{{answerList.length}} Answer(s)</th>
+            </tr>    
+        </thead>
+        <tbody>
+            <td class="text">{{question.text}}</td>
+            <td class="info">
+                Answered By: {{question.askedBy}}
+                <br>
+                Answered At: {{question.askedAt}}
+            </td>
+        </tbody>
+    </table>
+    
+    <table class="table" *ngIf="answerList.length">
+        <thead>
+            <tr>
+                <th class="text">Text</th>
+                <th class="info">Info</th>
+            </tr>
+        </thead>
+        <tbody >
+            <tr *ngFor="let ans of answerList">
+                <td class="text">{{ans.text}}</td>
+                <td class="info">
+                    Answered By: {{ans.ans_by}}
+                    <br>
+                    Answered At: {{ans.ans_at}}
+                </td>
+            </tr>    
+        </tbody>
+    </table>
+</div>
+
+<div *ngIf="!question">
+    This question does not exist.
+</div>
