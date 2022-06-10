@@ -21,6 +21,22 @@ namespace TestAppAPI.Services
 
         public static Question? Get(int id) => s_questions.FirstOrDefault(x => x.Id == id);
 
+        public static List<Question> Search(string[] queryWords)
+        {
+            return s_questions.Where(q =>
+            {
+                bool isValid = true;
+                foreach (var word in queryWords)
+                {
+                    if(!(q.Text!.Contains(word) || q.Title!.Contains(word)))
+                    {
+                        isValid = false;
+                        break;
+                    }
+                }
+                return isValid;
+            }).ToList();
+        }
         public static int Add(Question question)
         {
             question.Id = s_nextId++;

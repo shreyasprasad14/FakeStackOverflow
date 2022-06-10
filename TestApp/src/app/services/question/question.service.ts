@@ -24,6 +24,12 @@ export class QuestionService {
         .pipe(catchError(this.handleError<Question>(`getQuestion id=${id}`)));
   }
 
+  getSearchedQuestions(query: string):Observable<Question[]> {
+    return this.http
+        .get<Question[]>(this.QUESTION_URL + "search/" + query)
+        .pipe(catchError(this.handleError<Question[]>(`getSearchedQuestions query=${query}`, [])));
+  }
+
   addQuestion(question: Question): Observable<Question> {
     return this.http
         .post<Question>(this.QUESTION_URL, question)

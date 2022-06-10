@@ -8,7 +8,7 @@ import { QuestionPageComponent } from './question-page/question-page.component';
 import { QuestionComponent } from './question/question.component';
 import { QuestionAnsPageComponent } from './question-ans-page/question-ans-page.component';
 import { AddQuestionPageComponent } from './add-question-page/add-question-page.component';
-import { ReactiveFormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
 import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -20,6 +20,7 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 import { NavigationModule } from '@progress/kendo-angular-navigation';
 import { AddAnswerPageComponent } from './add-answer-page/add-answer-page.component';
 import { NotificationModule } from '@progress/kendo-angular-notification';
+import { IconsModule } from '@progress/kendo-angular-icons';
 
 
 
@@ -46,7 +47,9 @@ import { NotificationModule } from '@progress/kendo-angular-notification';
     ButtonModule,
     IndicatorsModule,
     NavigationModule,
-    NotificationModule
+    NotificationModule,
+    IconsModule,
+    FormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

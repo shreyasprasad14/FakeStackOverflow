@@ -8,6 +8,25 @@
         <button kendoButton size="large" fillMode="flat" routerLink="questions" class="nav-button">Questions</button>
         <kendo-appbar-spacer width="4px"></kendo-appbar-spacer>
         <button kendoButton fillMode="flat" routerLink="askQuestion" class="nav-button">Ask a Question</button>
-
     </kendo-appbar-section>
+
+    <kendo-appbar-spacer></kendo-appbar-spacer>
+
+    <kendo-appbar-section>
+        <form (ngSubmit)="search(searchInput.value)">
+            <kendo-textbox
+            [style.width.px]="160"
+            placeholder="Search..."
+            [clearButton]="true"
+            #searchInput
+          >
+              <ng-template kendoTextBoxPrefixTemplate>
+                  <kendo-icon name="search"></kendo-icon>
+              </ng-template>
+          </kendo-textbox>
+          <button kendoButton type="submit" fillMode="outline" themeColor="primary" [disabled]="isSearching">Search</button>
+        </form>
+        
+    </kendo-appbar-section>
+
 </kendo-appbar>

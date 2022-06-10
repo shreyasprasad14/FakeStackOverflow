@@ -1,5 +1,6 @@
 <div class="container"  *ngIf="!isServerProcessing">
   <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" id="questionForm" class="k-form">
+    <h1>Ask a Question</h1>
     <kendo-formfield>
         <kendo-label [for]="title" text="Title"></kendo-label>
         <kendo-textbox

@@ -22,6 +22,16 @@ namespace TestAppAPI.Controllers
             return Ok(question);
         }
 
+        [HttpGet("search/{query}")]
+        public ActionResult<List<Question>> Search(string query)
+        {
+            string[] queryWords = query.Split(',');
+            var res = QuestionService.Search(queryWords);
+
+            if(res == null) return NotFound();
+            return Ok(res);
+        }
+
         [HttpPost]
         public IActionResult Create(Question question)
         {
