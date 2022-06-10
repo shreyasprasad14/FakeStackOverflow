@@ -1,20 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\sprasad\\Documents\\TestApp\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj": {}
+    "C:\\Users\\Shreyas Prasad\\Documents\\GitHub\\FakeStackOverflow\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj": {}
   },
   "projects": {
-    "C:\\Users\\sprasad\\Documents\\TestApp\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj": {
+    "C:\\Users\\Shreyas Prasad\\Documents\\GitHub\\FakeStackOverflow\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\sprasad\\Documents\\TestApp\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj",
+        "projectUniqueName": "C:\\Users\\Shreyas Prasad\\Documents\\GitHub\\FakeStackOverflow\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj",
         "projectName": "TestAppAPI",
-        "projectPath": "C:\\Users\\sprasad\\Documents\\TestApp\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj",
-        "packagesPath": "C:\\Users\\sprasad\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\sprasad\\Documents\\TestApp\\API\\TestAppAPI\\TestAppAPI\\obj\\",
+        "projectPath": "C:\\Users\\Shreyas Prasad\\Documents\\GitHub\\FakeStackOverflow\\API\\TestAppAPI\\TestAppAPI\\TestAppAPI.csproj",
+        "packagesPath": "C:\\Users\\Shreyas Prasad\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Shreyas Prasad\\Documents\\GitHub\\FakeStackOverflow\\API\\TestAppAPI\\TestAppAPI\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
-          "C:\\Users\\sprasad\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Shreyas Prasad\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [

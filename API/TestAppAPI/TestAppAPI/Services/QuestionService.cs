@@ -11,8 +11,8 @@ namespace TestAppAPI.Services
         {
             s_questions = new List<Question>
             {
-                new Question { Id = 0, AskedAt = 0, AskedBy = "Shreyas", Title = "help", Text = "aaaaaaaa" },
-                new Question { Id = 1, AskedAt = 1000, AskedBy = "Anonymous", Title = "EZ", Text = "bbbbbbb" }
+                new Question { Id = 0, AskedAt = "Jan 01 2000 @ 1:00:00", AskedBy = "Shreyas", Title = "help", Text = "aaaaaaaa" },
+                new Question { Id = 1, AskedAt = "Jan 01 1970 @ 1:00:00",  AskedBy = "Anonymous", Title = "EZ", Text = "bbbbbbb" }
             };
 
         }
@@ -28,7 +28,7 @@ namespace TestAppAPI.Services
             return question.Id;
         }
 
-        public static Boolean Delete(int id)
+        public static bool Delete(int id)
         {
             var question = Get(id);
             if(question != null)

@@ -10,6 +10,15 @@ import { QuestionAnsPageComponent } from './question-ans-page/question-ans-page.
 import { AddQuestionPageComponent } from './add-question-page/add-question-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http'
+import { DropDownsModule } from '@progress/kendo-angular-dropdowns';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { GridModule } from '@progress/kendo-angular-grid';
+import { InputsModule } from '@progress/kendo-angular-inputs';
+import { LabelModule } from '@progress/kendo-angular-label';
+import { ButtonModule } from '@progress/kendo-angular-buttons';
+
+
+
 
 @NgModule({
   declarations: [
@@ -25,6 +34,12 @@ import { HttpClientModule } from '@angular/common/http'
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
+    DropDownsModule,
+    BrowserAnimationsModule,
+    GridModule,
+    InputsModule,
+    LabelModule,
+    ButtonModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -24,8 +24,10 @@ export class AddQuestionPageComponent implements OnInit {
     username: ['Anonymous']
   });
 
-  titleValid = false;
-  textValid = false;
+  serverProcessing = false;
+
+  // titleValid = false;
+  // textValid = false;
 
 
 
@@ -34,50 +36,55 @@ export class AddQuestionPageComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  onChange(): void {
-    if(this.questionForm.invalid) {
-      let response = this.questionForm.value;
+  // onChange(): void {
+  //   if(this.questionForm.invalid) {
+  //     let response = this.questionForm.value;
 
-      if(response.title && response.title.length < this.TITLE_MAX_LEN && response.title.length > this.TITLE_MIN_LEN) {
-        this.titleValid = true;
-      } else {
-        this.titleValid = false;
-      }
+  //     if(response.title && response.title.length < this.TITLE_MAX_LEN && response.title.length > this.TITLE_MIN_LEN) {
+  //       this.titleValid = true;
+  //     } else {
+  //       this.titleValid = false;
+  //     }
 
-      if(response.text && response.text.length < this.TEXT_MAX_LEN && response.text.length > this.TEXT_MIN_LEN) {
-        this.textValid = true;
-      } else {
-        this.textValid = false;
-      }
-    } else {
-      this.titleValid = true;
-      this.textValid = true;
-    }
-  }
+  //     if(response.text && response.text.length < this.TEXT_MAX_LEN && response.text.length > this.TEXT_MIN_LEN) {
+  //       this.textValid = true;
+  //     } else {
+  //       this.textValid = false;
+  //     }
+  //   } else {
+  //     this.titleValid = true;
+  //     this.textValid = true;
+  //   }
+  // }
 
   onSubmit(): void {
     if(this.questionForm.invalid) return;
+    this.serverProcessing = true;
     let response = this.questionForm.value;
-    let timestamp = Date.now();
+    let timestamp = new Date();
+
+    let time = timestamp.toTimeString().split(' ')[0];
+    let dateInfo = timestamp.toDateString().split(' ');
+    let date = dateInfo[1] + " " + dateInfo[2] + ", " + dateInfo[3];
 
     let question: Question = {
       id: -1, //Throwaway, is redefined on server
       title: response.title!,
       text!: response.text!,
       askedBy!: response.username!,
-      askedAt: timestamp
+      askedAt: date + " @ " + time
     };
 
     
     this.addQuestion(question);
-    this.router.navigate(['../questions']);
   }
 
   addQuestion(question: Question): void {
-    console.log(question)
     let res = this.http.post(environment.apiURL + "/question", question);
 
-    res.subscribe(q => console.log(q))
+    res.subscribe(() => {
+      this.serverProcessing = false;
+      this.router.navigate(['../questions'])
+    });
   }
-
 }

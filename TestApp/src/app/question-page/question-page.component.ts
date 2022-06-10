@@ -17,7 +17,13 @@ export class QuestionPageComponent implements OnInit {
   ngOnInit(): void {
     var res = this.getQuestions();
 
-    res.subscribe(q => this.questionList = q);
+    res.subscribe(qList => {
+      this.questionList = qList
+
+      this.questionList.forEach(question => {
+        
+      })
+    });
   }
 
   getQuestions(): Observable<Question[]> {

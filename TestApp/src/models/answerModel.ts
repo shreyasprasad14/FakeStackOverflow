@@ -1,8 +1,8 @@
 interface Answer {
-    _id: number;
+    id: number;
     questionId: number;
-    ans_by: string;
-    ans_at: number;
+    ansBy: string;
+    ansAt: number;
     text: string;
 }
 
