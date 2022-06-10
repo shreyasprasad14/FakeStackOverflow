@@ -16,7 +16,7 @@ import { GridModule } from '@progress/kendo-angular-grid';
 import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
-
+import { IndicatorsModule } from '@progress/kendo-angular-indicators';
 
 
 
@@ -39,7 +39,8 @@ import { ButtonModule } from '@progress/kendo-angular-buttons';
     GridModule,
     InputsModule,
     LabelModule,
-    ButtonModule
+    ButtonModule,
+    IndicatorsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
