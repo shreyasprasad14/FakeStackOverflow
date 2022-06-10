@@ -1,4 +1,5 @@
-<form [formGroup]="questionForm" (ngSubmit)="onSubmit()" id="questionForm" class="k-form">
+<div class="container"  *ngIf="!isServerProcessing">
+  <form [formGroup]="questionForm" (ngSubmit)="onSubmit()" id="questionForm" class="k-form">
     <kendo-formfield>
         <kendo-label [for]="title" text="Title"></kendo-label>
         <kendo-textbox
@@ -24,9 +25,18 @@
     
     <br>    
     <div class="k-form-buttons">
-        <button kendoButton themeColor="primary" (click)="onSubmit()" [disabled]="serverProcessing">
+        <button kendoButton themeColor="primary" (click)="onSubmit()" [disabled]="isServerProcessing">
           Submit
         </button>
     </div>
 </form>
+</div>
+
+<kendo-loader
+  *ngIf="isServerProcessing"
+  class="centered"
+  type="infinite-spinner"
+  themeColor="primary"
+  size="large">
+</kendo-loader>
 

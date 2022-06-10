@@ -1,9 +1,9 @@
 interface Answer {
     id: number;
     questionId: number;
-    ansBy: string;
-    ansAt: number;
-    text: string;
+    ansBy?: string;
+    ansAt?: string;
+    text?: string;
 }
 
 export default Answer;

@@ -1,10 +1,10 @@
-<table class="table">
+<table class="table" *ngIf="!loading && false">
     <thead>
         <tr>
             <th>{{questionList.length}} Questions</th>
             <th>Title</th>
             <th>
-                <a class="btn btn-primary" routerLink="../askQuestion">Ask Question</a>
+                <button kendoButton fillMode="outline" routerLink="../askQuestion">Ask Question</button>
             </th>
         </tr>
     </thead>
@@ -12,3 +12,37 @@
             <tr app-question *ngFor="let q of questionList" [question]=q></tr>    
     </tbody>
 </table>
+<kendo-grid [data]="questionList">
+
+    <kendo-grid-column field="link" title="Title" [width]="300">
+        <ng-template kendoGridHeaderTemplate>
+            <h3 class="title">Title</h3>
+        </ng-template>
+
+        <ng-template kendoGridCellTemplate let-dataItem>
+          <a class="title cellTitle" routerLink={{dataItem.link}}>{{dataItem.title}}</a>
+        </ng-template>
+    </kendo-grid-column>
+
+    <kendo-grid-column field="info" title="Info" [width]="50">
+        <ng-template kendoGridHeaderTemplate>
+            <h3 class="title">Info</h3>
+        </ng-template>
+
+        <ng-template kendoGridCellTemplate let-dataItem>
+            <div class="info">
+                Asked By: {{dataItem.askedBy}}
+                <br>
+                Asked At: {{dataItem.askedAt}}
+            </div>
+        </ng-template>
+    </kendo-grid-column>
+
+</kendo-grid>
+<kendo-loader
+  *ngIf="loading"
+  class="centered"
+  type="infinite-spinner"
+  themeColor="primary"
+  size="large">
+</kendo-loader>

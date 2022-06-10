@@ -17,6 +17,9 @@ import { InputsModule } from '@progress/kendo-angular-inputs';
 import { LabelModule } from '@progress/kendo-angular-label';
 import { ButtonModule } from '@progress/kendo-angular-buttons';
 import { IndicatorsModule } from '@progress/kendo-angular-indicators';
+import { NavigationModule } from '@progress/kendo-angular-navigation';
+import { AddAnswerPageComponent } from './add-answer-page/add-answer-page.component';
+import { NotificationModule } from '@progress/kendo-angular-notification';
 
 
 
@@ -27,7 +30,8 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
     QuestionPageComponent,
     QuestionComponent,
     QuestionAnsPageComponent,
-    AddQuestionPageComponent 
+    AddQuestionPageComponent,
+    AddAnswerPageComponent 
   ],
   imports: [
     BrowserModule,
@@ -40,7 +44,9 @@ import { IndicatorsModule } from '@progress/kendo-angular-indicators';
     InputsModule,
     LabelModule,
     ButtonModule,
-    IndicatorsModule
+    IndicatorsModule,
+    NavigationModule,
+    NotificationModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { environment } from 'src/environments/environment';
 import Question from 'src/models/questionModel';
+import { QuestionService } from '../services/question/question.service';
 
 @Component({
   selector: 'app-question-page',
@@ -10,23 +11,24 @@ import Question from 'src/models/questionModel';
   styleUrls: ['./question-page.component.sass']
 })
 export class QuestionPageComponent implements OnInit {
+  loading = true;
+
   questionList: Question[] = [];
 
-  constructor(private http: HttpClient) { }
+  constructor(private questionService: QuestionService) { }
 
   ngOnInit(): void {
-    var res = this.getQuestions();
+    var res = this.questionService.getQuestions();
 
     res.subscribe(qList => {
       this.questionList = qList
 
       this.questionList.forEach(question => {
-        
-      })
+        question.link = "../question/" + question.id;
+      });
+
+      this.loading = false;
     });
   }
 
-  getQuestions(): Observable<Question[]> {
-    return this.http.get<Question[]>(environment.apiURL + "/question");
-  }
 }

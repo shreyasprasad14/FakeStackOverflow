@@ -1,0 +1,34 @@
+<div class="container" *ngIf="question && !isServerProcessing">
+    <form class="k-form" [formGroup]="answerForm">
+        <h1>Add Your Answer For: {{question.title}}</h1>
+        <h4>{{question.text}}</h4>
+        <kendo-formfield>
+            <kendo-label [for]="text" text="Text"></kendo-label>
+            <kendo-textarea
+              formControlName="text"
+              #text
+              required
+            ></kendo-textarea>
+    
+            <kendo-formerror>Error: Text must contain between {{TEXT_MIN_LEN}} and {{TEXT_MAX_LEN}} characters.</kendo-formerror>
+        </kendo-formfield>
+
+        <div class="k-form-buttons">
+            <button kendoButton themeColor="primary" (click)="onSubmit()" [disabled]="isServerProcessing">
+              Submit
+            </button>
+        </div>
+    </form>
+</div>
+
+<div *ngIf="!question && !isLoading">
+    This question does not exist.
+</div>
+
+<kendo-loader
+  *ngIf="isLoading || isServerProcessing"
+  class="centered"
+  type="infinite-spinner"
+  themeColor="primary"
+  size="large">
+</kendo-loader>

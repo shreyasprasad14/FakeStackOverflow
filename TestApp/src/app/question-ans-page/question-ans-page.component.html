@@ -1,9 +1,12 @@
-<div *ngIf="question">
+<div *ngIf="question && !isLoading">
     <table class="table">
         <thead>
             <tr>
                 <th>{{question.title}}</th>
-                <th>{{answerList.length}} Answer(s)</th>
+                <th>
+                    {{answerList.length}} Answer(s)
+                    <button kendoButton themeColor="primary" fillMode="outline" [routerLink]="answerRoute" >Add Answer</button>
+                </th>
             </tr>    
         </thead>
         <tbody>
@@ -36,6 +39,14 @@
     </table>
 </div>
 
-<div *ngIf="!question">
+<div *ngIf="!question && !isLoading">
     This question does not exist.
 </div>
+
+<kendo-loader
+  *ngIf="isLoading"
+  class="centered"
+  type="infinite-spinner"
+  themeColor="primary"
+  size="large">
+</kendo-loader>

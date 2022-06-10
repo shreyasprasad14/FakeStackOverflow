@@ -1,15 +1,13 @@
-<nav class="navbar navbar-expand-md navbar-light sticky-top">
-    <div class="container-fluid">
-        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-            <li class="nav-item">
-                <a class="nav-link" routerLink="/">Home</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="questions">Questions</a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" routerLink="#">Tags??</a>
-            </li>
-        </ul>
-    </div>
-</nav>
+<kendo-appbar position="top">
+    <kendo-appbar-section>
+        <h1>Fake StackOverflow</h1>
+    </kendo-appbar-section>
+    <kendo-appbar-spacer width="32px"></kendo-appbar-spacer>
+
+    <kendo-appbar-section>
+        <button kendoButton size="large" fillMode="flat" routerLink="questions" class="nav-button">Questions</button>
+        <kendo-appbar-spacer width="4px"></kendo-appbar-spacer>
+        <button kendoButton fillMode="flat" routerLink="askQuestion" class="nav-button">Ask a Question</button>
+
+    </kendo-appbar-section>
+</kendo-appbar>

@@ -1,10 +1,9 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Observable } from 'rxjs';
-import { environment } from 'src/environments/environment';
 import Answer from 'src/models/answerModel';
 import Question from 'src/models/questionModel';
+import { AnswerService } from '../services/answer/answer.service';
+import { QuestionService } from '../services/question/question.service';
 
 @Component({
   selector: 'app-question-ans-page',
@@ -12,11 +11,15 @@ import Question from 'src/models/questionModel';
   styleUrls: ['./question-ans-page.component.sass']
 })
 export class QuestionAnsPageComponent implements OnInit {
-  id: number = -1;
+  private id?: number;
+
   question?: Question | null;
   answerList: Answer[] = [];
+  answerRoute?: string;
 
-  constructor(private route: ActivatedRoute, private http: HttpClient) { }
+  isLoading = true;
+
+  constructor(private route: ActivatedRoute, private questionService: QuestionService, private answerService: AnswerService) { }
 
   ngOnInit(): void {
     let temp = this.route.snapshot.paramMap.get('id');
@@ -24,12 +27,20 @@ export class QuestionAnsPageComponent implements OnInit {
 
     this.id = Number(temp);
 
-    let res = this.getQuestion();
-    res.subscribe(q => this.question = q);
-    // this.answerList = getAnswers(this.id);
-  }
-
-  getQuestion(): Observable<Question> {
-    return this.http.get<Question>(environment.apiURL + "/question/" + this.id)
+    this.questionService.getQuestion(this.id).subscribe(q => {
+        if(q === undefined) {
+          this.isLoading = false;
+          return;
+        }
+        
+        this.question = q;
+        this.answerRoute = "../../addAnswer/" + this.question.id;
+        this.answerService.getAnswers(this.question.id).subscribe(ansList => {
+          this.answerList = ansList;
+          this.isLoading = false;
+          }
+        );
+      }
+    );
   }
 }
